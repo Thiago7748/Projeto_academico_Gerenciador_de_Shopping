@@ -4,18 +4,24 @@ public class Loja {
     private String nome;
     private int quantidadeFuncionarios;
     private double salarioBaseFuncionario;
+    private Endereco endereco;
+    private Data dataDeFundacao;
 
     // metodos construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario){
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataDeFundacao)){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataDeFundacao = dataDeFundacao;
     }
 
-    public Loja(String nome, int quantidadeFuncionarios){
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataDeFundacao)){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1.0;
+        this.endereco = endereco;
+        this.dataDeFundacao = dataDeFundacao;
     }
 
     // getters e setters
@@ -38,6 +44,20 @@ public class Loja {
     }
     public double getSalarioBaseFuncionario() {
         return this.salarioBaseFuncionario;
+    }
+
+    public Endereco getEndereco() {
+        return this.endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Data getDataDeFundacao() {
+        return this.dataDeFundacao;
+    }
+    public void setDataDeFundacao(Data dataDeFundacao) {
+        this.dataDeFundacao = dataDeFundacao;
     }
 
     /* Métodos Comuns (ou Métodos de Instância):
