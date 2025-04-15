@@ -8,7 +8,7 @@ public class Loja {
     private Data dataDeFundacao;
 
     // metodos construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataDeFundacao)){
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataDeFundacao){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
@@ -16,7 +16,7 @@ public class Loja {
         this.dataDeFundacao = dataDeFundacao;
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataDeFundacao)){
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataDeFundacao){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1.0;
