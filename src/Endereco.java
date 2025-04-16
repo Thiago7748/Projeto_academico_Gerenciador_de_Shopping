@@ -1,6 +1,5 @@
 public class Endereco{
 
-    //atributos
     private String nomeDaRua;
     private String cidade;
     private String estado;
@@ -9,7 +8,6 @@ public class Endereco{
     private String numero;
     private String complemento;
 
-    //construtor
     public Endereco(String nomeDaRua, String cidade, String estado, String pais, String cep, String numero, String complemento){
         this.nomeDaRua = nomeDaRua;
         this.cidade = cidade;
@@ -20,7 +18,6 @@ public class Endereco{
         this.complemento = complemento;
     }
 
-    //getters and setters
     public void setNomeDaRua(String nomeDaRua){
         this.nomeDaRua = nomeDaRua;
     }
@@ -70,7 +67,6 @@ public class Endereco{
         return this.complemento;
     }
 
-    //metodo toString
     @Override
     public String toString() {
         return "Nome rua: " + nomeDaRua + "\n" +

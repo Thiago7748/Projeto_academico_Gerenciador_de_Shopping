@@ -4,93 +4,145 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Scanner teclado = new Scanner(System.in); // Cria o objeto Scanner para ler a entrada
+        Scanner teclado = new Scanner(System.in);
 
-        // Variáveis para guardar a loja e o produto criados (inicializadas como null)
         Loja lojaCriada = null;
         Produto produtoCriado = null;
 
-        int opcao = 0; // Variável para guardar a opção do menu escolhida pelo usuário
+        int opcao = 0;
 
         System.out.println("----- Gerenciador de Lojas e Produtos -----");
 
-        // Loop principal do menu (continua até o usuário digitar 3)
         while (opcao != 3) {
-            // Exibe o menu
             System.out.println("\nMENU:");
             System.out.println("(1) Criar uma loja");
             System.out.println("(2) Criar um produto");
             System.out.println("(3) Sair");
             System.out.print("Escolha uma opção: ");
 
-            // Lê a opção do usuário
             opcao = teclado.nextInt();
-            teclado.nextLine(); // <<< IMPORTANTE: Consome a quebra de linha deixada pelo nextInt()
+            teclado.nextLine();
 
-            // Processa a opção escolhida
             switch (opcao) {
                 case 1:
-                    System.out.println("\n--- Criar Loja ---");
                     if (lojaCriada == null) {
-                        // Lógica para pedir dados da Loja, Endereço e Data de Fundação
-                        // ... (ver detalhes abaixo) ...
-                        // lojaCriada = new Loja(...); // Cria a loja com os dados lidos
-                        System.out.println("Loja criada com sucesso! (Implementação Pendente)"); // Placeholder
+                        System.out.println("\n--- Cadastro da Loja ---");
+                        System.out.print("Nome da loja: ");
+                        String nomeLoja = teclado.nextLine();
+                        System.out.print("Quantidade de funcionários: ");
+                        int qtFunc = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.print("Salário base dos funcionários: ");
+                        double salBase = teclado.nextDouble();
+                        teclado.nextLine();
+
+                        System.out.println("-- Endereço da Loja --");
+                        System.out.print("Nome da rua: ");
+                        String rua = teclado.nextLine();
+                        System.out.print("Cidade: ");
+                        String cidade = teclado.nextLine();
+                        System.out.print("Estado: ");
+                        String estado = teclado.nextLine();
+                        System.out.print("País: ");
+                        String pais = teclado.nextLine();
+                        System.out.print("CEP: ");
+                        String cep = teclado.nextLine();
+                        System.out.print("Número: ");
+                        String numero = teclado.nextLine();
+                        System.out.print("Complemento: ");
+                        String complemento = teclado.nextLine();
+
+                        Endereco endLoja = new Endereco(rua, cidade, estado, pais, cep, numero, complemento);
+
+                        System.out.println("-- Data de Fundação --");
+                        System.out.print("Dia da fundação: ");
+                        int diaF = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.print("Mês da fundação: ");
+                        int mesF = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.print("Ano da fundação: ");
+                        int anoF = teclado.nextInt();
+                        teclado.nextLine();
+
+                        Data dataFundacao = new Data(diaF, mesF, anoF);
+
+                        lojaCriada = new Loja(nomeLoja, qtFunc, salBase, endLoja, dataFundacao);
+                        System.out.println("Loja '" + lojaCriada.getNome() + "' criada com sucesso!");
+
                     } else {
-                        System.out.println("Uma loja já foi criada.");
+                        System.out.println("ERRO: Uma loja já foi criada neste cadastro.");
                     }
-                    break; // Sai do switch
+                    break;
 
                 case 2:
-                    System.out.println("\n--- Criar Produto ---");
                     if (produtoCriado == null) {
-                        // Lógica para pedir dados do Produto e Data de Validade
-                        // ... (ver detalhes abaixo) ...
-                        // produtoCriado = new Produto(...); // Cria o produto com os dados lidos
-                        System.out.println("Produto criado com sucesso! (Implementação Pendente)"); // Placeholder
+                        System.out.println("\n--- Cadastro do Produto ---");
+
+                        System.out.print("Nome do produto: ");
+                        String nomeProd = teclado.nextLine();
+
+                        System.out.print("Preço do produto: ");
+                        double precoProd = teclado.nextDouble();
+                        teclado.nextLine();
+
+                        System.out.println("-- Data de Validade --");
+                        System.out.print("Dia da validade: ");
+                        int diaV = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.print("Mês da validade: ");
+                        int mesV = teclado.nextInt();
+                        teclado.nextLine();
+                        System.out.print("Ano da validade: ");
+                        int anoV = teclado.nextInt();
+                        teclado.nextLine();
+
+                        Data dataValidade = new Data(diaV, mesV, anoV);
+
+                        produtoCriado = new Produto(nomeProd, precoProd, dataValidade);
+                        System.out.println("Produto '" + produtoCriado.getNome() + "' criado com sucesso!");
+
                     } else {
-                        System.out.println("Um produto já foi criado.");
+                        System.out.println("ERRO: Um produto já foi criado neste cadastro.");
                     }
-                    break; // Sai do switch
+                    break;
 
                 case 3:
-                    System.out.println("\nSaindo do programa...");
-                    break; // Sai do switch (e o while vai parar)
+                    System.out.println("\nSaindo do sistema...");
+                    break;
 
-                default: // Caso o usuário digite algo diferente de 1, 2 ou 3
-                    System.out.println("\nOpção inválida. Tente novamente.");
-                    break; // Sai do switch
-            } // Fim do switch
-        } // Fim do while
-
-        // --- Lógica após sair do menu ---
-        System.out.println("\n--- Verificação Final ---");
-
-        // Verifica se ambos os objetos foram criados
-        if (lojaCriada != null && produtoCriado != null) {
-
-            // Cria a data de comparação (20/10/2023)
-            Data dataComparacao = new Data(20, 10, 2023);
-            // (O construtor da Data já valida se 20/10/2023 é válida)
-
-            // Verifica se o produto está vencido usando o método da classe Produto
-            if (produtoCriado.estaVencido(dataComparacao)) {
-                System.out.println("PRODUTO VENCIDO");
-            } else {
-                System.out.println("PRODUTO NÃO VENCIDO");
+                default:
+                    if(opcao != 0) {
+                        System.out.println("\nOpção inválida. Por favor, escolha 1, 2 ou 3.");
+                    }
+                    break;
             }
 
-            // Imprime as informações da loja (usando o toString da Loja)
-            System.out.println("\nInformações da Loja Criada:");
-            System.out.println(lojaCriada); // Chama lojaCriada.toString()
-
-        } else {
-            // Mensagem caso um ou ambos os objetos não tenham sido criados
-            System.out.println("Não foi possível realizar a verificação final, pois a loja ou o produto não foram criados.");
         }
 
-        teclado.close(); // Fecha o Scanner para liberar recursos
-        System.out.println("Programa finalizado.");
+        System.out.println("\n--------- Verificação Final ---------");
 
-    } // Fim do main
-} // Fim da classe Principal
+        if (lojaCriada != null && produtoCriado != null) {
+            System.out.println("Verificando validade do produto em relação a 20/10/2023...");
+            Data dataComparacao = new Data(20, 10, 2023);
+
+            if (produtoCriado.estaVencido(dataComparacao)) {
+                System.out.println("Resultado: PRODUTO VENCIDO");
+            } else {
+                System.out.println("Resultado: PRODUTO NÃO VENCIDO");
+            }
+
+            System.out.println("\n--- Informações da Loja Criada ---");
+            System.out.println(lojaCriada);
+
+        } else {
+            System.out.println("Não foi possível realizar a verificação final.");
+            if (lojaCriada == null) System.out.println("- A loja não foi criada.");
+            if (produtoCriado == null) System.out.println("- O produto não foi criado.");
+        }
+
+        teclado.close();
+        System.out.println("\nPrograma encerrado.");
+
+    }
+}

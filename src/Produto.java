@@ -1,11 +1,9 @@
 public class Produto {
 
-    // Atributos
     private String nome;
     private double preco;
     private Data dataValidade;
 
-    // Construtor
     public Produto(String nome, double preco, Data dataValidade) {
         this.nome = nome;
         this.preco = preco;
@@ -35,7 +33,6 @@ public class Produto {
         return false;
     }
 
-    // Getters e Setters
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -57,7 +54,6 @@ public class Produto {
         return this.dataValidade;
     }
 
-    // Metodo toString
     @Override
     public String toString() {
         return "Nome: " + nome + "\n" +

@@ -1,30 +1,27 @@
 public class Loja {
 
-    // atributos
     private String nome;
     private int quantidadeFuncionarios;
     private double salarioBaseFuncionario;
     private Endereco endereco;
-    private Data dataDeFundacao;
+    private Data dataFundacao;
 
-    // metodos construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataDeFundacao){
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
-        this.dataDeFundacao = dataDeFundacao;
+        this.dataFundacao = dataFundacao;
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataDeFundacao){
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1.0;
         this.endereco = endereco;
-        this.dataDeFundacao = dataDeFundacao;
+        this.dataFundacao = dataFundacao;
     }
 
-    // getters e setters
     public void setNome(String nome){
         this.nome = nome;
     }
@@ -53,19 +50,13 @@ public class Loja {
         this.endereco = endereco;
     }
 
-    public Data getDataDeFundacao() {
-        return this.dataDeFundacao;
+    public Data getDataFundacao() {
+        return this.dataFundacao;
     }
-    public void setDataDeFundacao(Data dataDeFundacao) {
-        this.dataDeFundacao = dataDeFundacao;
+    public void setDataFundacao(Data dataDeFundacao) {
+        this.dataFundacao = dataDeFundacao;
     }
 
-    /* Métodos Comuns (ou Métodos de Instância):
-    Têm nomes descritivos que indicam o que eles fazem(gastosComSalario,getNome, setNome, etc.).
-    Possuem um tipo de retorno (como double, char, String, int, ou void)
-    São usados para realizar ações, cálculos ou fornecer informações sobre um objeto que já existe.*/
-
-    // metodo comum sem parametro
     public double gastosComSalario(){
         if (this.salarioBaseFuncionario == -1){
             return -1.0;
@@ -74,7 +65,6 @@ public class Loja {
         }
     }
 
-    // metodo comum sem parametro
     public char tamanhoDaLoja(){
         if (this.quantidadeFuncionarios < 10){
             return 'P';
@@ -85,7 +75,6 @@ public class Loja {
         }
     }
 
-    // metodo toString
     @Override
     public String toString() {
         return "Loja: " + nome + "\n" +

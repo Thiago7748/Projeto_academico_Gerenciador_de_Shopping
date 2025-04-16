@@ -1,31 +1,23 @@
 public class Data{
 
-    //atributos
     private int dia;
     private int mes;
     private int ano;
 
-    // metodo comum sem parametro
     public boolean verificaAnoBissexto(){
         boolean condicao1 = (this.ano % 4 == 0) && (this.ano % 100 != 0);
         boolean condicao2 = (this.ano % 400 == 0);
         return condicao1 || condicao2;
-    }   /*Um ano é bissexto se UMA das seguintes condições for verdadeira:
-        É divisível por 4 E NÃO é divisível por 100.
-        É divisível por 400.*/
+    }
 
-    //construtor
     public Data(int dia, int mes, int ano) {
         boolean dataValida = true;
-        int diasNoMes = 0; // Inicializa com 0
+        int diasNoMes = 0;
 
-        // Validação básica do mês e ano
         if (mes < 1 || mes > 12 || ano <= 0) {
             dataValida = false;
         } else {
-            // Determina os dias no mês (precisa do ano para bissexto)
-            if (mes == 2) { // Fevereiro
-                // Verifica se o ano fornecido (parâmetro 'ano') é bissexto
+            if (mes == 2) {
                 boolean ehBissexto = (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
                 if (ehBissexto) {
                     diasNoMes = 29;
@@ -37,14 +29,11 @@ public class Data{
             } else {
                 diasNoMes = 31;
             }
-
-            // Valida o dia
             if (dia < 1 || dia > diasNoMes) {
                 dataValida = false;
             }
         }
 
-        // Atribuição final baseada na validação
         if (dataValida) {
             this.dia = dia;
             this.mes = mes;
@@ -57,7 +46,6 @@ public class Data{
         }
     }
 
-    //getters and setters
     public void setDia(int dia){
         this.dia = dia;
     }
@@ -79,7 +67,6 @@ public class Data{
         return this.ano;
     }
 
-    // metodo toString no formato dia/mes/ano
     @Override
     public String toString(){
         return this.dia + "/" + this.mes + "/" + this.ano;
