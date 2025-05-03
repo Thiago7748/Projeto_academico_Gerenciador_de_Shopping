@@ -77,8 +77,11 @@ public class Loja {
 
     @Override
     public String toString() {
-        return "Loja: " + nome + "\n" +
+        String info = "Loja: " + nome + "\n" +
                 "Quantidade de Funcionários: " + quantidadeFuncionarios + "\n" +
-                "Salário Base Funcionário: R$" + String.format("%.2f", salarioBaseFuncionario);
+                "Salário Base Funcionário: R$" + String.format("%.2f", salarioBaseFuncionario) + "\n" +
+                "Endereço:\n" + endereco + "\n" +
+                "Data de Fundação: " + dataFundacao;
+        return info;
     }
 }

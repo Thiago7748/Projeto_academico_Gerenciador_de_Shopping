@@ -59,5 +59,6 @@ public class Produto {
         return "Nome: " + nome + "\n" +
                 "Preço: R$" + String.format("%.2f", preco) + "\n" +
                 "Data de Validade: " + dataValidade;
+
     }
 }
