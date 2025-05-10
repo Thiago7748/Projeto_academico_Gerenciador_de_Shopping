@@ -4,6 +4,7 @@ public class Produto {
     private double preco;
     private Data dataValidade;
 
+
     public Produto(String nome, double preco, Data dataValidade) {
         this.nome = nome;
         this.preco = preco;
@@ -39,14 +40,12 @@ public class Produto {
     public String getNome() {
         return this.nome;
     }
-
     public void setPreco(double preco) {
         this.preco = preco;
     }
     public double getPreco() {
         return this.preco;
     }
-
     public void setDataValidade(Data dataValidade) {
         this.dataValidade = dataValidade;
     }

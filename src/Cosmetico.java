@@ -1,16 +1,18 @@
-                       //-> extends quer dizer que HERDA da classe principal LOJA
+//-> extends quer dizer que HERDA da classe principal LOJA
 public class Cosmetico extends Loja {
-
     //atributos
     private double taxaComercializacao;
 
     //Construtor
-    public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, double taxaComercializacao) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
-        this.taxaComercializacao = taxaComercializacao;
+    public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, double taxaComercializacao, int quantidadeMaximaProdutos){
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
+        this.taxaComercializacao = taxaComercializacao;                                     // -> adição do novo atributo de loja segundo gpt, verificar
     }
 
-    //metodos de acesso getters and setters
+    // Clase cosmeticos está herdando isso
+    // super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao)
+    // devo adicionar estoqueProtudos e quantidadeMaxima???
+
     public double getTaxaComercializacao() {
         return this.taxaComercializacao;
     }
@@ -18,7 +20,6 @@ public class Cosmetico extends Loja {
         this.taxaComercializacao = taxaComercializacao;
     }
 
-    //Sobrescrita do toString
     @Override
     public String toString() {
         return super.toString() + "\n" +

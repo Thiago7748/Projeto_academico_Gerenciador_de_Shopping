@@ -11,8 +11,6 @@ public class Principal {
 
         int opcao = 0;
 
-        System.out.println("----- Gerenciador de Lojas e Produtos -----");
-
         while (opcao != 3) {
             System.out.println("\nMENU:");
             System.out.println("(1) Criar uma loja");
@@ -67,7 +65,13 @@ public class Principal {
 
                         Data dataFundacao = new Data(diaF, mesF, anoF);
 
-                        lojaCriada = new Loja(nomeLoja, qtFunc, salBase, endLoja, dataFundacao);
+                        // Adicionar entrada para quantidadeMaximaProdutos
+                        System.out.print("Capacidade máxima do estoque (número de produtos): ");
+                        int quantidadeMaximaProdutos = teclado.nextInt();
+                        teclado.nextLine();
+
+                        // Usar o primeiro construtor com todos os argumentos
+                        lojaCriada = new Loja(nomeLoja, qtFunc, salBase, endLoja, dataFundacao, quantidadeMaximaProdutos);
                         System.out.println("Loja '" + lojaCriada.getNome() + "' criada com sucesso!");
 
                     } else {

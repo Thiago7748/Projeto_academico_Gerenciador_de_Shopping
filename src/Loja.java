@@ -3,27 +3,44 @@ public class Loja {
     private String nome;
     private int quantidadeFuncionarios;
     private double salarioBaseFuncionario;
+    // atributos iniciais ^^^^
+
     private Endereco endereco;
     private Data dataFundacao;
-    private Produto[] estoqueProdutos;
+    // atributos segundarios ^^^^
 
+    private Produto[] estoqueProdutos;
+    private int quantidadeMaximaProdutos;
+
+    // Clase cosmeticos está herdando isso
+    // super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao)
+    // devo adicionar estoqueProtudos e quantidadeMaxima???
+                                                                                                                            //-> adicição do atributo com orientação do gpt, verificar veracidade
     public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        // retorno dos atributos inicais ^^^^
+
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
+        this.quantidadeMaximaProdutos = quantidadeMaximaProdutos;
         this.estoqueProdutos = new Produto[quantidadeMaximaProdutos]; // Inicializa o array com o tamanho especificado
     }
-
+    // criação do primeiro construtor ^^^^
+                                                         //-> verificar essa informação, o enunciado pede inicialmente para passar apenas os atributos iniciais
     public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos){
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1.0;
+        // retorno dos atributos inicais ^^^^
+
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
         this.estoqueProdutos = new Produto[quantidadeMaximaProdutos]; // Inicializa o array com o tamanho especificado
     }
+    // criação do segundo construtor ^^^^
+
 
     public void setNome(String nome){
         this.nome = nome;
@@ -45,6 +62,8 @@ public class Loja {
     public double getSalarioBaseFuncionario() {
         return this.salarioBaseFuncionario;
     }
+    // metodos de acesso para os atributos iniciais ^^^^
+
 
     public Endereco getEndereco() {
         return this.endereco;
@@ -59,7 +78,9 @@ public class Loja {
     public void setDataFundacao(Data dataDeFundacao) {
         this.dataFundacao = dataDeFundacao;
     }
+    // metodos de cesso para os atributos segundarios ^^^^
 
+    // ENTENDER ESSE TRECHO DE CÓDIGO
     // Método de acesso para o estoqueProdutos
     public Produto[] getEstoqueProdutos() {
         return this.estoqueProdutos;
@@ -67,6 +88,7 @@ public class Loja {
     public void setEstoqueProdutos(Produto[] estoqueProdutos) {
         this.estoqueProdutos = estoqueProdutos;
     }
+    // ENTENDER ESSE TRECHO DE CÓDIGO
 
     public double gastosComSalario(){
         if (this.salarioBaseFuncionario == -1){
@@ -75,6 +97,7 @@ public class Loja {
             return this.salarioBaseFuncionario * this.quantidadeFuncionarios;
         }
     }
+    // esse metodo está OK ^^^^
 
     public char tamanhoDaLoja(){
         if (this.quantidadeFuncionarios < 10){
@@ -85,7 +108,9 @@ public class Loja {
             return 'G';
         }
     }
+    // esse metodo está OK ^^^^
 
+    // ENTENDER ESSE TRECHO DE CÓDIGO
     // Método para imprimir todos os produtos no estoque
     public void imprimeProdutos() {
         System.out.println("Produtos em estoque na loja " + this.nome + ":");
@@ -95,7 +120,9 @@ public class Loja {
             }
         }
     }
+    // ENTENDER ESSE TRECHO DE CÓDIGO
 
+    // ENTENDER ESSE TRECHO DE CÓDIGO
     // Método para inserir um produto no estoque
     public boolean insereProduto(Produto produto) {
         for (int i = 0; i < estoqueProdutos.length; i++) {
@@ -106,7 +133,9 @@ public class Loja {
         }
         return false; // Não há espaço disponível no estoque
     }
+    // ENTENDER ESSE TRECHO DE CÓDIGO
 
+    // ENTENDER ESSE TRECHO DE CÓDIGO
     // Método para remover um produto do estoque pelo nome
     public boolean removeProduto(String nomeProduto) {
         for (int i = 0; i < estoqueProdutos.length; i++) {
@@ -117,15 +146,16 @@ public class Loja {
         }
         return false; // Produto não encontrado no estoque
     }
+    // ENTENDER ESSE TRECHO DE CÓDIGO
 
     @Override
     public String toString() {
-        String info = "Loja: " + nome + "\n" +
+        return "Loja: " + nome + "\n" +
                 "Quantidade de Funcionários: " + quantidadeFuncionarios + "\n" +
                 "Salário Base Funcionário: R$" + String.format("%.2f", salarioBaseFuncionario) + "\n" +
                 "Endereço:\n" + endereco + "\n" +
                 "Data de Fundação: " + dataFundacao + "\n" +
+                // toString com informações iniciais ^^
                 "Capacidade do Estoque: " + estoqueProdutos.length + " produtos";
-        return info;
     }
 }
